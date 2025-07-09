@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Use default Tailwind class directly here */
+body {
+  font-family: sans-serif;
+  background-color: #0f172a;
+  color: white;
+}
+
+.input {
+  @apply w-full border px-4 py-2 rounded-xl;
+}
