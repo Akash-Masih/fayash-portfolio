@@ -344,6 +344,9 @@ function App() {
               <a href="https://www.instagram.com/fayash_hadyat?utm_source=qr&igsh=NmM3YWJmNHV1cTJm" className="hover:text-yellow-400"><i className="fab fa-instagram"></i></a>
               <a href="https://www.tiktok.com/@fayashwithabsmarking?_t=ZS-8xrBgUPH0mW&_r=1" className="hover:text-yellow-400"><i className="fab fa-tiktok"></i></a>
               <a href="https://www.linkedin.com/in/fayash-hadayat-1b4a96373/" className="hover:text-yellow-400"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://wa.me/923331110268" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">
+                <i className="fab fa-whatsapp"></i>
+              </a>
             </div>
           </div>
         </div>
