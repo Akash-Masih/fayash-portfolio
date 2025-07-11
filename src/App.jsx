@@ -129,42 +129,47 @@ function App() {
         </motion.div>
       </section>
       <section id="about" className="min-h-screen px-6 py-20 flex flex-col items-center bg-black/80">
-        <h3 className="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2">About Me</h3>
+        <h3 className="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2">
+          About Me
+        </h3>
 
-        <p className="max-w-3xl text-lg text-gray-300 text-center leading-8">
+        <p className="max-w-3xl text-base sm:text-lg md:text-lg lg:text-lg xl:text-lg text-gray-300 text-center leading-7 sm:leading-8">
           "I'm a passionate real estate professional committed to delivering value-driven, Shariah-compliant developments that combine innovation with integrity. With a strong background in sales and project coordination at ABS Developers, I bring hands-on experience in luxury property marketing, client relationship management, and strategic vision. My goal is to create impactful real estate experiences — where clients find trust, investors see growth, and every project tells a story of dedication, design, and excellence."
         </p>
       </section>
-      <section id="skills" className="min-h-screen px-6 py-20 flex flex-col items-center bg-zinc-900/80">
-        <h3 className="text-3xl font-bold text-yellow-400 mb-10 border-b border-yellow-500 pb-2">Skills</h3>
+      <section id="skills" className="min-h-screen px-4 sm:px-6 py-20 flex flex-col items-center bg-zinc-900/80">
+        <h3 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-10 border-b border-yellow-500 pb-2 text-center">
+          Skills
+        </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-            {[
-              "Client Acquisition & Retention",
-              "Strategic Real Estate Sales",
-              "Shariah-Compliant Investment Solutions",
-              "Luxury Property Marketing",
-              "Market Research & Trend Analysis",
-              "Communication & Deal Negotiation",
-              "Digital Outreach & Lead Generation",
-              "Team Collaboration & Leadership",
-              "Trust-Building & Ethical Sales Approach"
-            ].map((skill, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ rotateY: 10, scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                className="bg-zinc-800/90 text-center p-6 rounded-xl shadow-lg hover:shadow-yellow-400 text-white text-lg font-medium cursor-default transform-gpu"
-              >
-                <p className="text-white-200">{skill}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full max-w-6xl">
+          {[
+            "Client Acquisition & Retention",
+            "Strategic Real Estate Sales",
+            "Shariah-Compliant Investment Solutions",
+            "Luxury Property Marketing",
+            "Market Research & Trend Analysis",
+            "Communication & Deal Negotiation",
+            "Digital Outreach & Lead Generation",
+            "Team Collaboration & Leadership",
+            "Trust-Building & Ethical Sales Approach"
+          ].map((skill, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ rotateY: 10, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              className="bg-zinc-800/90 text-center p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-yellow-400 text-white text-sm sm:text-base md:text-lg font-medium cursor-default transform-gpu"
+            >
+              <p>{skill}</p>
+            </motion.div>
+          ))}
+        </div>
       </section>
+
       {/* Projects Section with Enhanced View Details */}
-      <section id="projects" className="min-h-screen px-6 py-20 flex flex-col items-center bg-black/80">
-        <h3 className="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2">Projects Showcase</h3>
-        <AnimatePresence>
+     <section id="projects" className="min-h-screen px-4 sm:px-6 py-20 flex flex-col items-center bg-black/80">
+      <h3 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2 text-center">Projects Showcase</h3>
+      <AnimatePresence>
           {selectedProject ? (
             <motion.div
               key="project-details"
@@ -172,14 +177,14 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="md:flex md:items-start gap-8 bg-zinc-900 p-8 rounded-xl shadow-2xl max-w-5xl"
+              className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8 bg-zinc-900 p-4 sm:p-6 md:p-8 rounded-xl shadow-2xl w-full max-w-5xl"
             >
-              <motion.div className="md:w-1/2" initial={{ rotateY: -90 }} animate={{ rotateY: 0 }} transition={{ duration: 0.5 }}>
-                <img src={selectedProject.image} alt={selectedProject.name} className="w-full h-80 object-cover rounded shadow-lg" />
-              </motion.div>
-              <motion.div className="md:w-1/2 mt-6 md:mt-0" initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
-                <h4 className="text-2xl font-bold text-yellow-300 mb-4">{selectedProject.name}</h4>
-                <ul className="text-gray-300 space-y-2">
+            <motion.div className="md:w-1/2 w-full" initial={{ rotateY: -90 }} animate={{ rotateY: 0 }} transition={{ duration: 0.5 }}>
+              <img src={selectedProject.image} alt={selectedProject.name} className="w-full h-64 sm:h-80 object-cover rounded shadow-lg" />
+            </motion.div>
+            <motion.div className="md:w-1/2 w-full mt-4 md:mt-0" initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
+              <h4 className="text-2xl font-bold text-yellow-300 mb-4">{selectedProject.name}</h4>
+                <ul className="text-gray-300 space-y-2 text-sm sm:text-base">
                   <li><strong>Floors:</strong> {selectedProject.floors}</li>
                   <li><strong>Location:</strong> {selectedProject.location}</li>
                   <li><strong>Title:</strong> {selectedProject.title}</li>
@@ -188,17 +193,17 @@ function App() {
                 <div className="flex flex-wrap gap-4 mt-6">
                   <button
                     onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
-                    className="px-6 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 transition"
+                    className="px-6 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 transition text-sm sm:text-base"
                   >Know More</button>
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="px-6 py-2 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition"
+                    className="px-6 py-2 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition text-sm sm:text-base"
                   >Back to Projects</button>
                 </div>
               </motion.div>
             </motion.div>
           ) : (
-            <div className="grid md:grid-cols-4 gap-8 max-w-5xl">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full max-w-5xl">
               {projectsData.map((project, index) => (
                 <motion.div
                   key={index}
@@ -207,22 +212,25 @@ function App() {
                   className="bg-zinc-800/90 p-0 rounded-xl shadow-2xl overflow-hidden transform hover:shadow-yellow-400 hover:z-10 cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <img src={project.image} alt={project.name} className="w-full h-60 object-cover" />
+                  <img src={project.image} alt={project.name} className="w-full h-40 sm:h-60 object-cover" />
                   <div className="p-4">
-                    <h4 className="text-xl font-semibold text-yellow-300 mb-2">{project.name}</h4>
-                    <p className="text-gray-300">Click to view full project details.</p>
+                    <h4 className="text-lg sm:text-xl font-semibold text-yellow-300 mb-1">{project.name}</h4>
+                    <p className="text-gray-300 text-sm sm:text-base">Click to view full project details.</p>
                   </div>
                 </motion.div>
               ))}
-            </div>
-          )}
-        </AnimatePresence>
-      </section>
+          </div>
+        )}
+      </AnimatePresence>
+    </section>
 
-     <section id="services" className="min-h-screen px-6 py-20 bg-black/80 text-white flex flex-col items-center">
-      <h3 className="text-3xl font-bold text-yellow-400 mb-12 border-b border-yellow-500 pb-2">My Services</h3>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+    <section id="services" className="min-h-screen px-4 sm:px-6 py-20 bg-black/80 text-white flex flex-col items-center">
+      <h3 className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-10 sm:mb-12 border-b border-yellow-500 pb-2 text-center">
+        My Services
+      </h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl">
         {[
           { title: "1 Bed Apartment", image: b1, desc: "Perfect for singles or couples seeking cozy, modern living." },
           { title: "2 Bed Apartment", image: b2, desc: "Ideal for small families with stylish interiors." },
@@ -235,16 +243,16 @@ function App() {
             key={index}
             whileHover={{ scale: 1.05, rotateY: 5 }}
             transition={{ type: "spring", stiffness: 200 }}
-            className="bg-zinc-800/90 p-0 rounded-xl shadow-2xl overflow-hidden transform hover:shadow-yellow-400 hover:z-10 cursor-pointer"
+            className="bg-zinc-800/90 rounded-xl shadow-2xl overflow-hidden hover:shadow-yellow-400 z-10 cursor-pointer"
           >
             <img
               src={unit.image}
               alt={unit.title}
               className="w-full h-40 object-cover rounded-t"
             />
-            <div className="p-4">
-              <h4 className="text-xl font-semibold text-yellow-300 mb-2">{unit.title}</h4>
-              <p className="text-sm text-gray-300">{unit.desc}</p>
+            <div className="p-4 sm:p-5 md:p-6">
+              <h4 className="text-lg sm:text-xl font-semibold text-yellow-300 mb-2">{unit.title}</h4>
+              <p className="text-sm text-gray-300 leading-relaxed">{unit.desc}</p>
               <button
                 onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
                 className="mt-4 inline-block bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-500 transition"
@@ -258,16 +266,18 @@ function App() {
     </section>
 
 
+
       <section id="vision" className="min-h-screen px-6 py-20 flex flex-col items-center bg-zinc-900/80">
-        <h3 className="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2">My Vision</h3>
-        <p className="max-w-3xl text-lg text-gray-300 text-center leading-8">
+        <h3 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2 text-center">
+          My Vision
+        </h3>
+
+        <p className="max-w-3xl text-base sm:text-lg md:text-xl text-gray-300 text-center leading-7 sm:leading-8 md:leading-9 tracking-wide px-2 sm:px-4">
           "At ABS Developers, my vision is to revolutionize Pakistan’s real estate landscape by setting new standards of excellence rooted in integrity, innovation, and Shariah-compliant practices. We are committed to delivering iconic residential and commercial developments that not only stand out in design and functionality but also serve a deeper purpose — to enrich lives and uplift communities.
-
-          We believe that a property is not just land or structure, but a foundation for dreams, prosperity, and legacy. Through modern architecture, ethical investment strategies, and sustainable construction, we aim to build not just buildings — but environments that inspire trust, well-being, and long-term value.
-
-          Our mission is to empower investors with confidence, offer families secure and elegant spaces, and contribute meaningfully to the future of urban development in Pakistan. With every project, we move closer to a future where luxury, faith, and impact converge to shape a better tomorrow."
-
-
+          <br /><br />
+          My believe that a property is not just land or structure, but a foundation for dreams, prosperity, and legacy. Through modern architecture, ethical investment strategies, and sustainable construction, we aim to build not just buildings — but environments that inspire trust, well-being, and long-term value.
+          <br /><br />
+          My mission is to empower investors with confidence, offer families secure and elegant spaces, and contribute meaningfully to the future of urban development in Pakistan. With every project, we move closer to a future where luxury, faith, and impact converge to shape a better tomorrow."
         </p>
       </section>
       <section id="contact" className="min-h-screen px-6 py-20 flex flex-col items-center bg-black/80">
@@ -318,31 +328,41 @@ function App() {
       </section>
 
       {/* Footer with Enhanced Social Icons */}
-      <footer className="bg-black/90 text-white py-10 px-6 border-t border-gray-700">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 text-center md:text-left">
+      <footer className="bg-black/90 text-white py-10 px-4 sm:px-6 border-t border-gray-700">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+          {/* Column 1: Address & Logo */}
           <div>
-            <h4 className="text-xl font-bold text-yellow-400 mb-2">Connect With Us</h4>
-              <p className="text-gray-400">
-                ABS Developers<br /> 
-                Pearl One Tower (10A-18A), Iqbal Block, Bahria Town, Lahore
-              </p>
-              <div className="flex justify-center sm:justify-start">
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={logo}
-                    alt="ABS Developers Logo"
-                    className="w-32 h-auto mt-4 hover:opacity-80 transition"
-                  />
-                </a>
+            <h4 className="text-lg sm:text-xl font-bold text-yellow-400 mb-2">Connect With Us</h4>
+            <p className="text-gray-400 text-sm sm:text-base">
+              ABS Developers<br /> 
+              Pearl One Tower (10A-18A), Iqbal Block,<br className="hidden sm:inline" />
+              Bahria Town, Lahore
+            </p>
+            <div className="flex justify-center md:justify-start">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={logo}
+                  alt="ABS Developers Logo"
+                  className="w-28 sm:w-32 h-auto mt-4 hover:opacity-80 transition"
+                />
+              </a>
             </div>
           </div>
+
+          {/* Column 2: Contact Info */}
           <div>
-            <h4 className="text-xl font-bold text-yellow-400 mb-2">Contact</h4>
-            <p className="text-gray-400">Phone: +92 333 1110268<br />fayashhadayat@gmail.com || fayash940@gmail.com</p>
+            <h4 className="text-lg sm:text-xl font-bold text-yellow-400 mb-2">Contact</h4>
+            <p className="text-gray-400 text-sm sm:text-base">
+              Phone: +92 333 1110268<br />
+              fayashhadayat@gmail.com<br />
+              fayash940@gmail.com
+            </p>
           </div>
+
+          {/* Column 3: Social Links */}
           <div>
-            <h4 className="text-xl font-bold text-yellow-400 mb-2">Join Community</h4>
-            <div className="flex justify-center md:justify-start space-x-5 text-2xl">
+            <h4 className="text-lg sm:text-xl font-bold text-yellow-400 mb-2">Join Community</h4>
+            <div className="flex justify-center md:justify-start space-x-4 text-xl sm:text-2xl mt-2">
               <a href="https://www.facebook.com/share/1BsNG6BXLt/" className="hover:text-yellow-400"><i className="fab fa-facebook-f"></i></a>
               <a href="https://www.instagram.com/fayash_hadyat?utm_source=qr&igsh=NmM3YWJmNHV1cTJm" className="hover:text-yellow-400"><i className="fab fa-instagram"></i></a>
               <a href="https://www.tiktok.com/@fayashwithabsmarking?_t=ZS-8xrBgUPH0mW&_r=1" className="hover:text-yellow-400"><i className="fab fa-tiktok"></i></a>
@@ -353,7 +373,11 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="text-center mt-6 text-gray-500 text-sm">&copy; {new Date().getFullYear()} Fayash Hadayat. All rights reserved.</div>
+
+        {/* Copyright */}
+        <div className="text-center mt-8 text-gray-500 text-xs sm:text-sm">
+          &copy; {new Date().getFullYear()} Fayash Hadayat. All rights reserved.
+        </div>
       </footer>
     </div>
   );
