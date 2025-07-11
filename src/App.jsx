@@ -54,13 +54,15 @@ function App() {
   return (
     <div className="font-sans bg-[url('/src/assets/bg-pattern.jpg')] bg-cover bg-fixed bg-no-repeat text-white scroll-smooth">
       <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md shadow-md z-50">
-        <nav className="flex justify-center space-x-6 py-4 text-sm uppercase tracking-wide">
-          {["home", "about", "skills", "projects","services", "vision", "contact"].map((id) => (
+        <nav className="flex flex-wrap justify-center items-center gap-2 px-2 py-3 text-xs sm:gap-6 sm:px-4 sm:py-4 sm:text-base">
+          {["home", "about", "skills", "projects", "services", "vision", "contact"].map((id) => (
             <a
               key={id}
               href={`#${id}`}
               className={`font-semibold transition-all duration-700 ${
-                activeSection === id ? "text-yellow-400 border-b-2 border-yellow-400" : "text-gray-400 hover:text-white"
+              activeSection === id
+                ? "text-yellow-400 border-b-2 border-yellow-400"
+                : "text-gray-400 hover:text-white"
               }`}
             >
               {id.charAt(0).toUpperCase() + id.slice(1)}
@@ -122,7 +124,7 @@ function App() {
           <img 
             src={profileImage} 
             alt="Fayash Hadayat" 
-            className="w-80 h-80 object-cover rounded-full border-4 border-yellow-400 shadow-2xl transform hover:scale-110 transition duration-800" 
+             className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-yellow-400 shadow-2xl transform hover:scale-110 transition duration-800" 
           />
         </motion.div>
       </section>
@@ -320,18 +322,19 @@ function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 text-center md:text-left">
           <div>
             <h4 className="text-xl font-bold text-yellow-400 mb-2">Connect With Us</h4>
-            <p className="text-gray-400">ABS Developers<br />Pearl One Tower (10A-18A), Iqbal Block, Bahria Town, Lahore</p>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-              src={logo}
-              alt="ABS Developers Logo"
-              className="w-32 h-auto mt-4 hover:opacity-80 transition"
-              />
-            </a>
+              <p className="text-gray-400">
+                ABS Developers<br /> 
+                Pearl One Tower (10A-18A), Iqbal Block, Bahria Town, Lahore
+              </p>
+              <div className="flex justify-center sm:justify-start">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={logo}
+                    alt="ABS Developers Logo"
+                    className="w-32 h-auto mt-4 hover:opacity-80 transition"
+                  />
+                </a>
+            </div>
           </div>
           <div>
             <h4 className="text-xl font-bold text-yellow-400 mb-2">Contact</h4>
