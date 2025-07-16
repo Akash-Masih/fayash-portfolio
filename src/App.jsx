@@ -281,50 +281,78 @@ function App() {
         </p>
       </section>
       <section id="contact" className="min-h-screen px-6 py-20 flex flex-col items-center bg-black/80">
-        <h3 className="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2">Schedule a Private Meeting</h3>
+        <h3 className="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-500 pb-2">
+          Schedule a Private Meeting
+        </h3>
+
         <form
           onSubmit={async (e) => {
-          e.preventDefault();
-          const formData = {
-            name: e.target.name.value,
-            phone: e.target.phone.value,
-            email: e.target.email.value,
-            message: e.target.message.value,
-          };
+            e.preventDefault();
+            const formData = {
+              name: e.target.name.value.trim(),
+              phone: e.target.phone.value.trim(),
+              email: e.target.email.value.trim(),
+              message: e.target.message.value.trim(),
+            };
 
-        if (!formData.name || (!formData.email && !formData.phone)) {
-          alert("Please enter your name and at least phone or email.");
-          return;
-        }
+            if (!formData.name || (!formData.email && !formData.phone)) {
+              alert("Please enter your name and at least phone or email.");
+              return;
+            }
 
-        try {
-          const res = await fetch("http://localhost:5000/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-          });
+            try {
+              const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+              });
 
-          const result = await res.json();
-          if (result.success) {
-          alert("Message sent successfully!");
-          e.target.reset();
-          } else {
-          alert("Failed to send message. Try again later.");
-          }
-        } catch (err) {
-          alert("Something went wrong. Please try again.");
-        }
-      }}
-      className="w-full max-w-md space-y-4"
-      >
-      <input name="name" type="text" placeholder="Your Name" className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none" />
-      <input name="phone" type="text" placeholder="Your Phone" className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none" />
-      <input name="email" type="email" placeholder="Your Email" className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none" />
-      <textarea name="message" rows="4" placeholder="Your Message" className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none"></textarea>
-      <button type="submit" className="bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-500 transition">
-        Send Message
-      </button>
-    </form>
+              const result = await res.json();
+              if (result.success) {
+                alert("✅ Message sent successfully!");
+                e.target.reset();
+              } else {
+                alert("❌ Failed to send message. Please try again later.");
+              }
+            } catch (err) {
+              console.error("Error submitting contact form:", err);
+              alert("🚨 Something went wrong. Please try again.");
+            }
+          }}
+          className="w-full max-w-md space-y-4"
+        >
+          <input
+            name="name"
+            type="text"
+            placeholder="Your Name"
+            required
+            className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none"
+          />
+          <input
+            name="phone"
+            type="text"
+            placeholder="Your Phone"
+            className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none"
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email"
+            className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none"
+          />
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            className="w-full px-4 py-2 bg-zinc-800 text-white rounded focus:outline-none"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-500 transition"
+          >
+            Send Message
+          </button>
+        </form>
       </section>
 
       {/* Footer with Enhanced Social Icons */}
