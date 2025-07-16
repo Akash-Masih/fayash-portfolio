@@ -1,4 +1,4 @@
-import pool from '../../lib/db.js';
+import pool from '../lib/db.js';
 
 export default async function handler(req, res) {
   console.log("📩 Handler invoked — method:", req.method);
