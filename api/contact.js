@@ -1,25 +1,31 @@
+// api/contact.js
 import pool from '../lib/db.js';
 
 export default async function handler(req, res) {
-  console.log("📩 Handler invoked — method:", req.method);
-
   if (req.method !== 'POST') {
-    console.log("⚠️ Wrong method:", req.method);
-    return res.status(405).end('Method Not Allowed');
+    return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  console.log("✅ POST method accepted. Body:", req.body);
-
   try {
-    const { name, phone, email, message } = req.body;
-    const result = await pool.query(
-      'INSERT INTO contacts (name, phone, email, message) VALUES ($1, $2, $3, $4)',
-      [name, phone, email, message]
-    );
-    console.log("✅ DB Insert Ok:", result);
-    return res.status(200).json({ success: true, message: 'Message stored successfully!' });
-  } catch (error) {
-    console.error("❌ DB or Code Error:", error);
-    return res.status(500).json({ success: false, message: 'Database error', error: error.message });
+    const body = req.body;
+    const { name, email, phone, message } = body;
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    const query = `
+      INSERT INTO contacts (name, email, phone, message)
+      VALUES ($1, $2, $3, $4)
+    `;
+    const values = [name, email, phone || '', message];
+
+    await pool.query(query, values);
+
+    return res.status(200).json({ success: true, message: 'Message sent successfully' });
+
+  } catch (err) {
+    console.error('❌ DB or Code Error:', err);
+    return res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 }
