@@ -307,7 +307,16 @@ function App() {
                 body: JSON.stringify(formData),
               });
 
-              const result = await res.json();
+              let result = {};
+              try {
+                result = await res.json();
+              } catch (jsonErr) {
+                console.error("❌ Not a JSON response:", jsonErr);
+                const text = await res.text();
+                console.error("❗ Server said:", text);
+                throw new Error("Non-JSON response");
+              }
+
               if (result.success) {
                 alert("✅ Message sent successfully!");
                 e.target.reset();
