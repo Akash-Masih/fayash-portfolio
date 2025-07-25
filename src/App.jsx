@@ -365,8 +365,9 @@ function App() {
             <div className="flex justify-center md:justify-start space-x-4 text-xl sm:text-2xl mt-2">
               <a href="https://www.facebook.com/share/1BsNG6BXLt/" className="hover:text-yellow-400"><i className="fab fa-facebook-f"></i></a>
               <a href="https://www.instagram.com/fayash_hadyat?utm_source=qr&igsh=NmM3YWJmNHV1cTJm" className="hover:text-yellow-400"><i className="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@DealsReelswithFayash" className="hover:text-yellow-400"><i className="fab fa-youtube"></i></a>
               <a href="https://www.tiktok.com/@fayashwithabsmarking?_t=ZS-8xrBgUPH0mW&_r=1" className="hover:text-yellow-400"><i className="fab fa-tiktok"></i></a>
-              <a href="https://www.linkedin.com/in/fayash-hadayat-1b4a96373/" className="hover:text-yellow-400"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://www.linkedin.com/in/fayash-hadayat-652b64375/" className="hover:text-yellow-400"><i className="fab fa-linkedin-in"></i></a>
               <a href="https://wa.me/923331110268" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">
                 <i className="fab fa-whatsapp"></i>
               </a>
