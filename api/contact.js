@@ -1,24 +1,16 @@
-// api/contact.js
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { name, email, phone, message } = req.body;
 
-    if (!name || (!email && !phone)) {
-      return res
-        .status(400)
-        .json({ error: "Name and at least email or phone are required." });
-    }
+    console.log("📩 New Message Received:");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Phone:", phone);
+    console.log("Message:", message);
 
-    // For now, just log the submission
-    console.log("📩 New contact form submission:", { name, email, phone, message });
-
-    // Respond back to frontend
-    return res
-      .status(200)
-      .json({ success: true, message: "✅ Message received successfully." });
+    // Respond success
+    return res.status(200).json({ success: true, msg: "Message received!" });
   }
 
-  // Only allow POST
   return res.status(405).json({ error: "Method not allowed" });
 }
