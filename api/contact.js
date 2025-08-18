@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       // Send email via Resend
       const data = await resend.emails.send({
         from: "Fayash Portfolio <onboarding@resend.dev>", // ✅ Works without domain verification
-        to: "your-email@example.com", // 🔴 replace with your own Gmail/outlook
+        to: "fayash940@gmail.com", 
         subject: "📩 New Message from Fayash Portfolio",
         html: `
           <h2>New Contact Form Submission</h2>
