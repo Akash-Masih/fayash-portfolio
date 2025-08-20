@@ -175,7 +175,7 @@ function App() {
         {/* Brand mark video section */}
   <     div className="w-full mt-12">
           <video
-            className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] object-cover rounded-xl shadow-2xl"
+            className="w-full h-[30vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] object-contain sm:object-cover  rounded-xl shadow-2xl"
             src={brandv}
             autoPlay
             loop
